@@ -1,0 +1,76 @@
+﻿@using X.PagedList.Mvc;
+@model X.PagedList.PagedList<CrudAspNetMvc.Models.Cliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="page-header">
+    <h2>Cadastro de clientes</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        @Html.ActionLink("Novo cliente", "Create", null, new { @class = "btn btn-primary"})
+    </div>
+    <div class="col-md-6">
+        @using (Html.BeginForm("Index", "Clientes", FormMethod.Get))
+        {
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Buscar cliente" required name="busca" value="@ViewBag.Busca">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        }
+    </div>
+</div>
+
+<hr />
+
+<table class="table table-condensed table-hover">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th>
+            CPF
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Telefone
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefone)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", new { id = item.Id})" class="btn btn-primary btn-sm" title="Editar">
+                <span class="glyphicon glyphicon-file"></span>
+            </a>
+            <a href="@Url.Action("Delete", new { id = item.Id})" class="btn btn-danger btn-sm" title="Excluir">
+                <span class="glyphicon glyphicon-trash"></span>
+            </a>
+        </td>
+    </tr>
+}
+</table>
+
+@Html.PagedListPager(Model, pagina => Url.Action("Index", new { pagina, busca = ViewBag.Busca }))

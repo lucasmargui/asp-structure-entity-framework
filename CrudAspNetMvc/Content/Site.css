@@ -1,0 +1,8 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+table tr td:last-child {
+    text-align:right
+}

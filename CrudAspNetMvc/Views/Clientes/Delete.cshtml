@@ -1,0 +1,24 @@
+﻿@model CrudAspNetMvc.Models.Cliente
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="page-header">
+    <h2 class="text-danger">Excluir cliente</h2>
+</div>
+
+<div class="alert alert-danger">
+    Deseja realmente excluir o cadastro de <b>@Html.DisplayFor(model => model.Nome)</b>?
+</div>
+
+<div>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger" />
+            <input type="button" value="Voltar" class="btn btn-default" onclick="window.history.back();"/>
+        </div>
+    }
+</div>
