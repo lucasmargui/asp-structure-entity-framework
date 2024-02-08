@@ -6,6 +6,35 @@
 * NET 4.7.0
 * Entity Framework
 
+ ## Execução do Entity Framework nas IDE's: VS 2015/2017:
+ 
+ Ao realizar os comandos:
+ 
+  ```
+    Enable-Migrations
+  ```
+  e
+  
+  ```
+    Update-Database -Verbose
+  ```
+  
+Nas versões mais recentes do Visual Studio (2015/2017), se faz necessário criar uma nova instância do localdb do sql no seu computador. A qual poderá ser criado da seguinte maneira:
+
+Passo 1: Abrir o cmd e executar o seguinte comando:
+  ```
+  SqlLocalDB.exe create "Local"
+  ```
+Passo 2: Executar a instance com seguinte comando:
+  ```
+  SqlLocalDb.exe start
+  ```
+  
+Passo 3: Ir até o 'Package Manager Console' e executar o seguinte comando:
+  ```
+  Update-Database -Verbose
+  ```
+
 ## Alteração da String de conexão
 
 Configurar a connectionStrings com banco de dados local onde 'name' será utilizado como referência para conexão com Entity Framework
