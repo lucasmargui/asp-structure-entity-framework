@@ -7,8 +7,12 @@
 * Entity Framework
 
  ## Execução do Entity Framework nas IDE's: VS 2015/2017:
+
  
- Ao realizar os comandos:
+
+ <details>
+  <summary>Clique para mostrar conteúdo</summary>
+  Ao realizar os comandos:
  
   ```
     Enable-Migrations
@@ -46,8 +50,16 @@ Web.Config
   <add name="Cadastro" connectionString="Data Source=(localdb)\Local;Initial Catalog=DbClientes;Integrated Security=True;" providerName="System.Data.SqlClient" />
 </connectionStrings>
 ```
-## Criação Models
 
+
+</details>
+
+ 
+ 
+## Criação Models
+<details>
+  <summary>Clique para mostrar conteúdo</summary>
+  
 ### Criação do Cadastro Context
 
 Essa classe será responsavel para criação do banco de dados com suas respectivas tabelas através do Entity Framework
@@ -81,13 +93,9 @@ Model que será utilizado como base para criação das tabelas através do Entit
 Models/Cliente.cs
 ```
 
-## Resultado
 
-### View Lista
-<img src="https://media.discordapp.net/attachments/1046824853015113789/1203152258389245982/image.png?ex=65d00ddb&is=65bd98db&hm=cd581f68c38805c5314b20cda95836db2faab01e87605e5f2a36084ca23d91fd&=&format=webp&quality=lossless" alt="">
+</details>
 
-### View Cadastro de cliente
 
-<img src="https://media.discordapp.net/attachments/1046824853015113789/1203152335140950106/image.png?ex=65d00dee&is=65bd98ee&hm=c219b2fb2040cedd32ab317ba3066e56ab5976e43e1e55661dff50951061366c&=&format=webp&quality=lossless" alt="">
 
 
