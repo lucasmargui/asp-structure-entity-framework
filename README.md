@@ -1,53 +1,53 @@
-<H1 align="center">Estrutura Entity Framework</H1>
-<p align="center">🚀 Projeto de criação de uma estrutura utilizando Entity Framework para referências futuras</p>
+<H1 align="center">Entity Framework Structure</H1>
+<p align="center">🚀 Project to create a structure using Entity Framework for future references</p>
 
-## Recursos Utilizados
+## Resources Used
 
 * NET 4.7.0
 * Entity Framework
 
- ## Execução do Entity Framework nas IDE's: VS 2015/2017:
+  ## Entity Framework execution in IDE's: VS 2015/2017:
 
  
 
- <details>
-  <summary>Clique para mostrar conteúdo</summary>
-  Ao realizar os comandos:
+  <details>
+   <summary>Click to show content</summary>
+   When executing the commands:
  
-  ```
-    Enable-Migrations
-  ```
-  e
+   ```
+     Enable-Migrations
+   ```
+   It is
   
-  ```
-    Update-Database -Verbose
-  ```
+   ```
+     Update-Database -Verbose
+   ```
   
-Nas versões mais recentes do Visual Studio (2015/2017), se faz necessário criar uma nova instância do localdb do sql no seu computador. A qual poderá ser criado da seguinte maneira:
+In the most recent versions of Visual Studio (2015/2017), it is necessary to create a new instance of sql localdb on your computer. Which can be created in the following way:
 
-Passo 1: Abrir o cmd e executar o seguinte comando:
-  ```
-  SqlLocalDB.exe create "Local"
-  ```
-Passo 2: Executar a instance com seguinte comando:
-  ```
-  SqlLocalDb.exe start
-  ```
+Step 1: Open cmd and execute the following command:
+   ```
+   SqlLocalDB.exe create "Local"
+   ```
+Step 2: Run the instance with the following command:
+   ```
+   SqlLocalDb.exe start
+   ```
   
-Passo 3: Ir até o 'Package Manager Console' e executar o seguinte comando:
-  ```
-  Update-Database -Verbose
-  ```
+Step 3: Go to the 'Package Manager Console' and execute the following command:
+   ```
+   Update-Database -Verbose
+   ```
 
-## Alteração da String de conexão
+## Changing the connection string
 
-Configurar a connectionStrings com banco de dados local onde 'name' será utilizado como referência para conexão com Entity Framework
+Configure connectionStrings with local database where 'name' will be used as a reference for connecting to Entity Framework
 ```
 Web.Config
 ```
 ```
 <connectionStrings>
-  <add name="Cadastro" connectionString="Data Source=(localdb)\Local;Initial Catalog=DbClientes;Integrated Security=True;" providerName="System.Data.SqlClient" />
+   <add name="Registration" connectionString="Data Source=(localdb)\Local;Initial Catalog=DbClientes;Integrated Security=True;" providerName="System.Data.SqlClient" />
 </connectionStrings>
 ```
 
@@ -56,46 +56,42 @@ Web.Config
 
  
  
-## Criação Models
+## Model Create
 <details>
-  <summary>Clique para mostrar conteúdo</summary>
+   <summary>Click to show content</summary>
   
-### Criação do Cadastro Context
+### Context Registration Creation
 
-Essa classe será responsavel para criação do banco de dados com suas respectivas tabelas através do Entity Framework
+This class will be responsible for creating the database with its respective tables through the Entity Framework
 ```
 Models/CadastroContext.cs
 ```
 <br>
 <br>
 
-Método responsável por utilizar a connectionString de web.config para se conectar com banco e criar o banco de dados
+Method responsible for using the connectionString from web.config to connect to the database and create the database
 
 ```
-  public CadastroContext():base("Cadastro")
-        {
+   public CadastroContext():base("Registration")
+         {
 
-        }
+         }
 ```
 <br>
 <br>
 
-DbSet utiliza o Model das classes para criação das tabelas 
+DbSet uses the Model of classes to create tables
 
 ```
-public DbSet<Cliente> Clientes { get; set; }
+public DbSet<Customer> Customers { get; set; }
 ```
 
-### Criação do Cliente
+### Customer Create
 
-Model que será utilizado como base para criação das tabelas através do EntityFramework e Data Annotations em CadastroContext.cs
+Model that will be used as a basis for creating tables through EntityFramework and Data Annotations in CadastroContext.cs
 ```
 Models/Cliente.cs
 ```
 
 
 </details>
-
-
-
-
